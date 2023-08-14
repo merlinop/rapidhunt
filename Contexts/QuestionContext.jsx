@@ -93,7 +93,7 @@ const QuestionProvider = ({ children }) => {
     if (Loading) {
       setTimeout(() => {
         setLoading((val) => !val), setShowResult(true)
-      }, 5000)
+      }, 2000)
     }
   }, [Loading])
 
