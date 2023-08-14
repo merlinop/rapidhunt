@@ -1,6 +1,7 @@
 "use client"
 import React from "react"
 import { useQuestionContext } from "@/Contexts/QuestionContext"
+import { twMerge } from "tailwind-merge"
 
 const NewTest = () => {
   const {
@@ -52,22 +53,20 @@ const NewTest = () => {
                       <button
                         disabled={disabledOpt}
                         key={opt.id}
-                        className={`${
-                          opt.isSelected
-                            ? "border-[2px] border-[#35acf7] bg-zinc-600"
-                            : "border-transparent "
-                        } ${
-                          previewOption &&
-                          opt.isCorrect &&
-                          "border-[2px] border-green-500 bg-green-700 text-white"
-                        }  ${
-                          previewOption &&
-                          !opt.isCorrect &&
+                        className={twMerge(
+                          "transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 rounded-lg w-[100%] lg:w-[65%] h-[40px] lg:h-[45px] textGray bg-[#312e42] text-[10px] line-height:[6px] md:text-xs border-[2px] border-transparent hover:opacity-80 flex items-center justify-items-start gap-1 px-2 py-1 hover:border-[#35acf7] group",
                           opt.isSelected &&
-                          "border-[2px] border-red-500 bg-red-600 text-white"
-                        } ${
+                            "border-[2px] border-[#35acf7] bg-zinc-600",
+                          !opt.isSelected && "border-transparent",
+                          previewOption &&
+                            opt.isCorrect &&
+                            "border-[2px] border-green-500 bg-green-700 text-white",
+                          previewOption &&
+                            !opt.isCorrect &&
+                            opt.isSelected &&
+                            "border-[2px] border-red-500 bg-red-600 text-white",
                           disabledOpt && "cursor-not-allowed"
-                        } transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 rounded-lg w-[100%] lg:w-[65%] h-[40px] lg:h-[45px] textGray bg-[#312e42] text-[10px] line-height:[6px] md:text-xs border-[2px] border-transparent hover:opacity-80 flex items-center justify-items-start gap-1 px-2 py-1 hover:border-[#35acf7] group`}
+                        )}
                         onClick={() => handleSelected(section.id, opt.id)}
                       >
                         <p
@@ -162,3 +161,24 @@ const NewTest = () => {
 }
 
 export default NewTest
+
+{
+  /* <div>
+className={`${
+                          opt.isSelected
+                            ? "border-[2px] border-[#35acf7] bg-zinc-600"
+                            : "border-transparent "
+                        } ${
+                          previewOption &&
+                          opt.isCorrect &&
+                          "border-[2px] border-green-500 bg-green-700 text-white"
+                        }  ${
+                          previewOption &&
+                          !opt.isCorrect &&
+                          opt.isSelected &&
+                          "border-[2px] border-red-500 bg-red-600 text-white"
+                        } ${
+                          disabledOpt && "cursor-not-allowed"
+                        } transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 rounded-lg w-[100%] lg:w-[65%] h-[40px] lg:h-[45px] textGray bg-[#312e42] text-[10px] line-height:[6px] md:text-xs border-[2px] border-transparent hover:opacity-80 flex items-center justify-items-start gap-1 px-2 py-1 hover:border-[#35acf7] group`}
+</div> */
+}

@@ -5,7 +5,7 @@ import { useQuestionContext } from "@/Contexts/QuestionContext"
 const Summary = () => {
   const { QuestionLength, isAnswered, isSkipped } = useQuestionContext()
   return (
-    <div className="-w-full flex flex-col lg:flex-row items-start whitespace-nowrap lg:items-center justify-between  textGray mt-[20px] px-4">
+    <div className="-w-full flex flex-col lg:flex-row items-start whitespace-nowrap lg:items-center justify-between textGray mt-[20px] px-4">
       {/* Name  */}
       <p className="w-[35%]"> Stanford University</p>
 
